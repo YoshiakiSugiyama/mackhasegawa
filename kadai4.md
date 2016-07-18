@@ -1,31 +1,31 @@
-# �ۑ�S�@�摜�̃q�X�g�O����
+# 課題４　画像のヒストグラム
+  
+これは画素の濃度ヒストグラムを生成するプログラムである。  
+以下のコマンドimreadにより、280x240の解像度の画像を読み込み、rgb2grayコマンドを用いて白黒画像にする。  
+  
+ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % 原画像の入力  
+ORG=rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換  
+imagesc(ORG); colormap(gray); colorbar;  
+pause;  
+  
+  
+読み込んで白黒にした画像は以下の図１の通り。  
+  
+![原画像](kadai4-1.png)
 
-����͉�f�̔Z�x�q�X�g�O�����𐶐�����v���O�����ł���B
-�ȉ��̃R�}���himread�ɂ��A280x240�̉𑜓x�̉摜��ǂݍ��݁Argb2gray�R�}���h��p���Ĕ����摜�ɂ���B
+図１　原画像  
+  
+  
+  
+以下のコマンドimhistにより、ヒストグラムを生成する。  
 
-ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % ���摜�̓���
-ORG=rgb2gray(ORG); % �J���[�摜�𔒍��Z�W�摜�֕ϊ�
-imagesc(ORG); colormap(gray); colorbar;
-pause;
+imhist(ORG); % ヒストグラムの表示  
+  
+  
+生成したヒストグラムは以下の図２の通り。  
 
-
-�ǂݍ���Ŕ����ɂ����摜�͈ȉ��̐}�P�̒ʂ�B
-
-![���摜](kadai4-1.png)
-
-�}�P�@���摜
-
-
-
-�ȉ��̃R�}���himhist�ɂ��A�q�X�g�O�����𐶐�����B
-
-imhist(ORG); % �q�X�g�O�����̕\��
-
-
-���������q�X�g�O�����͈ȉ��̐}�Q�̒ʂ�B
-
-![���摜](kadai4-2.png)
-�}�Q�@�q�X�g�O����
+![原画像](kadai4-2.png)
+図２　ヒストグラム  
 
 
 

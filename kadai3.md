@@ -1,61 +1,61 @@
-# �ۑ�R�@臒l�����@���|�[�g
+# 課題３　閾値処理　レポート
 
-�����臒l��4�p�^�[���ݒ肵��臒l�����������摜�̐����v���O�����ł���B
-�ȉ��̃R�}���himread�ɂ��A280x240�̉𑜓x�̉摜��ǂݍ��݁Argb2gray�R�}���h��p���Ĕ����摜�ɂ���B
+これは閾値を4パターン設定して閾値処理をした画像の生成プログラムである。  
+以下のコマンドimreadにより、280x240の解像度の画像を読み込み、rgb2grayコマンドを用いて白黒画像にする。  
 
-ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % ���摜�̓���
-ORG= rgb2gray(ORG);
-imagesc(ORG); colormap(gray); colorbar; % �摜�̕\��
-pause;
+ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % 原画像の入力  
+ORG= rgb2gray(ORG);  
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示  
+pause;  
 
-�ǂݍ���Ŕ����ɂ����摜�͈ȉ��̐}�P�̒ʂ�B
+読み込んで白黒にした画像は以下の図１の通り。  
 
-![���摜](kadai3-1.png)
+![原画像](kadai3-1.png)
 
-�}�P�@���摜
-
-
-
-�P�x�l��64�ȏ�̉�f��1�ցA���̑���0�ɕϊ�����
-IMG = ORG > 64;
-imagesc(IMG); colormap(gray); colorbar;
-pause;
+図１　原画像  
 
 
-�P�x�l��96�ȏ�̉�f��1�ցA���̑���0�ɕϊ�����
 
-IMG = ORG > 96;
-imagesc(IMG); colormap(gray); colorbar;
-pause;
+輝度値が64以上の画素を1へ、その他を0に変換する  
+IMG = ORG > 64;  
+imagesc(IMG); colormap(gray); colorbar;  
+pause;  
 
 
-��L�̂悤�ɁA�������J��Ԃ��A�P�x�l�����ꂼ��64�ȏ�A96�ȏ�A128�ȏ�A192�ȏ�̌��ʂ��}�Q�`�}�T�ƂȂ�B
+輝度値が96以上の画素を1へ、その他を0に変換する  
 
- �P�x�l 64�ȏ�͐}�Q�̒ʂ�B
+IMG = ORG > 96;  
+imagesc(IMG); colormap(gray); colorbar;  
+pause;  
+
+
+上記のように、これらを繰り返し、輝度値がそれぞれ64以上、96以上、128以上、192以上の結果が図２～図５となる。  
+
+ 輝度値 64以上は図２の通り。  
 
 ![2](kadai3-2.png)
-�}�Q�@ �P�x�l 64�ȏ�
+図２　 輝度値 64以上  
 
 
 
- �P�x�l 96�ȏ�͐}�R�̒ʂ�B
+ 輝度値 96以上は図３の通り。  
 
 ![2](kadai3-3.png)
-�}�R�@ �P�x�l 96�ȏ�
+図３　 輝度値 96以上  
 
 
 
- �P�x�l128�ȏ�͐}�S�̒ʂ�B
+ 輝度値128以上は図４の通り。  
 
 ![2](kadai3-4.png)
-�}�S�@ �P�x�l128�ȏ�
+図４　 輝度値128以上  
 
 
 
- �P�x�l192�ȏ�͐}�T�̒ʂ�B
+ 輝度値192以上は図５の通り。  
 
 ![2](kadai3-5.png)
-�}�T�@ �P�x�l192�ȏ�
+図５　 輝度値192以上  
 
 
 

@@ -1,64 +1,65 @@
-# ‰Û‘è‚T@”»•Ê•ªÍ–@
+# èª²é¡Œï¼•ã€€åˆ¤åˆ¥åˆ†ææ³•
+  
+ã“ã‚Œã¯åˆ¤åˆ¥åˆ†ææ³•ã‚’ç”¨ã„ã¦ç”»åƒã‚’äºŒå€¤åŒ–ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ã‚ã‚‹ã€‚  
+ä»¥ä¸‹ã®ã‚³ãƒãƒ³ãƒ‰imreadã«ã‚ˆã‚Šã€280x240ã®è§£åƒåº¦ã®ç”»åƒã‚’èª­ã¿è¾¼ã¿ã€rgb2grayã‚³ãƒãƒ³ãƒ‰ã‚’ç”¨ã„ã¦ç™½é»’ç”»åƒã«ã™ã‚‹ã€‚  
+  
+ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % åŸç”»åƒã®å…¥åŠ›  
+ORG = rgb2gray(ORG); % ã‚«ãƒ©ãƒ¼ç”»åƒã‚’ç™½é»’æ¿ƒæ·¡ç”»åƒã¸å¤‰æ›  
+imagesc(ORG); colormap(gray); colorbar;  
+pause;  
+  
+  
+èª­ã¿è¾¼ã‚“ã§ç™½é»’ã«ã—ãŸç”»åƒã¯ä»¥ä¸‹ã®å›³ï¼‘ã®é€šã‚Šã€‚  
 
-‚±‚ê‚Í”»•Ê•ªÍ–@‚ğ—p‚¢‚Ä‰æ‘œ‚ğ“ñ’l‰»‚·‚éƒvƒƒOƒ‰ƒ€‚Å‚ ‚éB
-ˆÈ‰º‚ÌƒRƒ}ƒ“ƒhimread‚É‚æ‚èA280x240‚Ì‰ğ‘œ“x‚Ì‰æ‘œ‚ğ“Ç‚İ‚İArgb2grayƒRƒ}ƒ“ƒh‚ğ—p‚¢‚Ä”’•‰æ‘œ‚É‚·‚éB
-
-ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % Œ´‰æ‘œ‚Ì“ü—Í
-ORG = rgb2gray(ORG); % ƒJƒ‰[‰æ‘œ‚ğ”’•”Z’W‰æ‘œ‚Ö•ÏŠ·
-imagesc(ORG); colormap(gray); colorbar;
-pause;
-
-
-“Ç‚İ‚ñ‚Å”’•‚É‚µ‚½‰æ‘œ‚ÍˆÈ‰º‚Ì}‚P‚Ì’Ê‚èB
-
-![Œ´‰æ‘œ](kadai5-1.png)
-}‚P@Œ´‰æ‘œ
-
-
-”»•Ê•ªÍ–@‚Í‘å’Ã‚Ì“ñ’l‰»‚Æ‚àŒ¾‚í‚êA•ª—£“x‚ªÅ‘å‚Æ‚È‚é‚µ‚«‚¢’l‚ğ‹‚ßA©“®“I‚É“ñ’l‰»‚ğs‚¤è–@B[1]
-
-ƒqƒXƒgƒOƒ‰ƒ€‚Ìƒf[ƒ^‚ğ—ñƒxƒNƒgƒ‹‚ÉŠi”[‚·‚é
-
-H = imhist(ORG);
-myu_T = mean(H);
-max_val = 0;
-max_thres = 1;
-for i=1:255
-
-ƒqƒXƒgƒOƒ‰ƒ€‚ğ2‚Â‚ÌƒNƒ‰ƒX‚É•ª‚¯‚é
-
-C1 = H(1:i);
-C2 = H(i+1:256);
-
-n1 = sum(C1); %‰æ‘f”‚ÌZo
-n2 = sum(C2);
-myu1 = mean(C1); %•½‹Ï’l‚ÌZo
-myu2 = mean(C2);
-sigma1 = var(C1); %•ªU‚ÌZo
-sigma2 = var(C2);
-sigma_w = (n1 *sigma1+n2*sigma2)/(n1+n2); %ƒNƒ‰ƒX“à•ªU‚ÌZo
-sigma_B = (n1 *(myu1-myu_T)^2+n2*(myu2-myu_T)^2)/(n1+n2); %ƒNƒ‰ƒXŠÔ•ªU‚ÌZo
-if max_val<sigma_B/sigma_w
-max_val = sigma_B/sigma_w;
-max_thres =i;
-end;
-end;
-
-IMG = ORG > max_thres;
-imagesc(IMG); colormap(gray); colorbar;
-pause;
-
-
-”»•Ê•ªÍ–@‚Å‚Q’l‰»‚µ‚½‰æ‘œ‚Í}‚QB
-
+![åŸç”»åƒ](kadai5-1.png)
+å›³ï¼‘ã€€åŸç”»åƒ  
+  
+  
+åˆ¤åˆ¥åˆ†ææ³•ã¯å¤§æ´¥ã®äºŒå€¤åŒ–ã¨ã‚‚è¨€ã‚ã‚Œã€åˆ†é›¢åº¦ãŒæœ€å¤§ã¨ãªã‚‹ã—ãã„å€¤ã‚’æ±‚ã‚ã€è‡ªå‹•çš„ã«äºŒå€¤åŒ–ã‚’è¡Œã†æ‰‹æ³•ã€‚[1]  
+  
+ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ã®ãƒ‡ãƒ¼ã‚¿ã‚’åˆ—ãƒ™ã‚¯ãƒˆãƒ«ã«æ ¼ç´ã™ã‚‹  
+  
+H = imhist(ORG);  
+myu_T = mean(H);  
+max_val = 0;  
+max_thres = 1;  
+for i=1:255  
+  
+ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ã‚’2ã¤ã®ã‚¯ãƒ©ã‚¹ã«åˆ†ã‘ã‚‹  
+  
+C1 = H(1:i);  
+C2 = H(i+1:256);  
+  
+n1 = sum(C1); %ç”»ç´ æ•°ã®ç®—å‡º  
+n2 = sum(C2);  
+myu1 = mean(C1); %å¹³å‡å€¤ã®ç®—å‡º  
+myu2 = mean(C2);  
+sigma1 = var(C1); %åˆ†æ•£ã®ç®—å‡º  
+sigma2 = var(C2);  
+sigma_w = (n1 *sigma1+n2*sigma2)/(n1+n2); %ã‚¯ãƒ©ã‚¹å†…åˆ†æ•£ã®ç®—å‡º  
+sigma_B = (n1 *(myu1-myu_T)^2+n2*(myu2-myu_T)^2)/(n1+n2); %ã‚¯ãƒ©ã‚¹é–“åˆ†æ•£ã®ç®—å‡º  
+if max_val<sigma_B/sigma_w  
+max_val = sigma_B/sigma_w;  
+max_thres =i;  
+end;  
+end;  
+  
+IMG = ORG > max_thres;  
+imagesc(IMG); colormap(gray); colorbar;  
+pause;  
+  
+  
+åˆ¤åˆ¥åˆ†ææ³•ã§ï¼’å€¤åŒ–ã—ãŸç”»åƒã¯å›³ï¼’ã€‚  
+  
 ![2](kadai5-2.png)
 
-}‚Q@”»•Ê•ªÍ–@‚Å‚Q’l‰»‚µ‚½‰æ‘œ
+å›³ï¼’ã€€åˆ¤åˆ¥åˆ†ææ³•ã§ï¼’å€¤åŒ–ã—ãŸç”»åƒ  
+  
+  
+  
+  
+# å‚è€ƒæ–‡çŒ®
 
-
-
-
-# Ql•¶Œ£
-
-[1]@”»•Ê•ªÍ–@i‘å’Ã‚Ì‚Q’l‰»j@‰æ‘œˆ—ƒ\ƒŠƒ…[ƒVƒ‡ƒ“
-http://imagingsolution.blog107.fc2.com/blog-entry-113.html
+[1]ã€€åˆ¤åˆ¥åˆ†ææ³•ï¼ˆå¤§æ´¥ã®ï¼’å€¤åŒ–ï¼‰ã€€ç”»åƒå‡¦ç†ã‚½ãƒªãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³  
+http://imagingsolution.blog107.fc2.com/blog-entry-113.html  
+  

@@ -1,58 +1,58 @@
-# �ۑ�7�@�_�C�i�~�b�N�����W�̊g��
+# 課題7　ダイナミックレンジの拡大
+  
+下記のプログラムは画素のダイナミックレンジを０から２５５にするプログラムである。  
+以下のコマンドimreadにより、280x240の解像度の画像を読み込み、rgb2grayコマンドを用いて白黒画像にする。  
 
-���L�̃v���O�����͉�f�̃_�C�i�~�b�N�����W���O����Q�T�T�ɂ���v���O�����ł���B
-�ȉ��̃R�}���himread�ɂ��A280x240�̉𑜓x�̉摜��ǂݍ��݁Argb2gray�R�}���h��p���Ĕ����摜�ɂ���B
+ORG = imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % 画像の読み込み  
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換  
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示  
+pause;  
+  
+読み込んで白黒にした画像は以下の図１の通り。  
 
-ORG = imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % �摜�̓ǂݍ���
-ORG = rgb2gray(ORG); % �����Z�W�摜�ɕϊ�
-imagesc(ORG); colormap(gray); colorbar; % �摜�̕\��
-pause;
+![原画像](kadai7-1.png)
 
-�ǂݍ���Ŕ����ɂ����摜�͈ȉ��̐}�P�̒ʂ�B
+図１　原画像  
+  
+  
+  
+以下のコマンドimhistにより、ヒストグラムを生成する。  
+  
+imhist(ORG); % 濃度ヒストグラムを生成、表示  
+pause;  
+  
+生成したヒストグラムは以下の図２の通り。  
 
-![���摜](kadai7-1.png)
+![原画像](kadai7-2.png)
 
-�}�P�@���摜
+図２　ヒストグラム  
+  
+  
+  
+全体のビットの最小値を探し、各ビットから最小値を引き、それらを全体的に０から２５５になるようにする。  
+  
+ORG = double(ORG);  
+mn = min(ORG(:)); % 濃度値の最小値を算出  
+mx = max(ORG(:)); % 濃度値の最大値を算出  
+ORG = (ORG-mn)/(mx-mn)*255;  
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示  
+pause;  
+  
+  
+生成した画像は以下の図３の通り。  
 
+![原画像](kadai7-3.png)
 
+図３　ダイナミックレンジを拡大した画像  
+  
+  
+  
+ORG = uint8(ORG); % ０から２の８乗から１引いた値、つまり２５５までの整数の絶対値への変換  
+imhist(ORG); % 濃度ヒストグラムを生成、表示  
+  
+  
+生成したヒストグラムは以下の図２の通り。  
 
-�ȉ��̃R�}���himhist�ɂ��A�q�X�g�O�����𐶐�����B
+![原画像](kadai7-4.png)
 
-imhist(ORG); % �Z�x�q�X�g�O�����𐶐��A�\��
-pause;
-
-���������q�X�g�O�����͈ȉ��̐}�Q�̒ʂ�B
-
-![���摜](kadai7-2.png)
-
-�}�Q�@�q�X�g�O����
-
-
-
-�S�̂̃r�b�g�̍ŏ��l��T���A�e�r�b�g����ŏ��l�������A������S�̓I�ɂO����Q�T�T�ɂȂ�悤�ɂ���B
-
-ORG = double(ORG);
-mn = min(ORG(:)); % �Z�x�l�̍ŏ��l���Z�o
-mx = max(ORG(:)); % �Z�x�l�̍ő�l���Z�o
-ORG = (ORG-mn)/(mx-mn)*255;
-imagesc(ORG); colormap(gray); colorbar; % �摜�̕\��
-pause;
-
-
-���������摜�͈ȉ��̐}�R�̒ʂ�B
-
-![���摜](kadai7-3.png)
-
-�}�R�@�_�C�i�~�b�N�����W���g�債���摜
-
-
-
-ORG = uint8(ORG); % �O����Q�̂W�悩��P�������l�A�܂�Q�T�T�܂ł̐����̐�Βl�ւ̕ϊ�
-imhist(ORG); % �Z�x�q�X�g�O�����𐶐��A�\��
-
-
-���������q�X�g�O�����͈ȉ��̐}�Q�̒ʂ�B
-
-![���摜](kadai7-4.png)
-
-�}�Q�@�_�C�i�~�b�N�����W���g�債���摜�̃q�X�g�O����
+図２　ダイナミックレンジを拡大した画像のヒストグラム  

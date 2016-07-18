@@ -1,70 +1,67 @@
-# �ۑ�Q�@�K�����Ƌ^���֊s�@���|�[�g
+# 課題２　階調数と疑似輪郭　レポート
 
-����͂Q�K���C�S�K���C�W�K���̉摜�𐶐�����v���O�����ł���B
-�ȉ��̃R�}���himread�ɂ��A280x240�̉𑜓x�̉摜��ǂݍ��݁Argb2gray�R�}���h��p���Ĕ����摜�ɂ���B
+これは２階調，４階調，８階調の画像を生成するプログラムである。  
+以下のコマンドimreadにより、280x240の解像度の画像を読み込み、rgb2grayコマンドを用いて白黒画像にする。  
 
-ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % ���摜�̓���
-ORG = rgb2gray(ORG); colormap(gray); colorbar; % �J���[�o�[�̕\��
-imagesc(ORG); axis image; % �摜�̕\��
-pause; % �ꎞ��~
+ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % 原画像の入力  
+ORG = rgb2gray(ORG); colormap(gray); colorbar; % カラーバーの表示  
+imagesc(ORG); axis image; % 画像の表示  
+pause; % 一時停止  
 
-�ǂݍ���Ŕ����ɂ����摜�͈ȉ��̐}�P�̒ʂ�B
+読み込んで白黒にした画像は以下の図１の通り。  
 
-![���摜](kadai2-1.png)
+![原画像](kadai2-1.png)
 
-�}�P�@���摜
-
-
-
-�ȉ��̂悤��255�i�K�̔����摜�̂Q�K���摜�̐������邽�߁A�e�h�b�g�̐F�����ɋ߂������ɋ߂����ł��ꂼ�ꔒ������B
-
-IMG = ORG>128;
-imagesc(IMG); colormap(gray); colorbar;  axis image;
-saveas(gcf,'kadai2-2.png');
-pause;
+図１　原画像
 
 
-���l�ɁA�S�K���摜�̐������s���B
 
-IMG0 = ORG>64;
-IMG1 = ORG>128;
-IMG2 = ORG>192;
-IMG = IMG0 + IMG1 + IMG2;
-saveas(gcf,'kadai2-3.png');
-imagesc(IMG); colormap(gray); colorbar;  axis image;
+以下のように255段階の白黒画像の２階調画像の生成するため、各ドットの色が白に近いか黒に近いかでそれぞれ白黒つける。  
+
+IMG = ORG>128;  
+imagesc(IMG); colormap(gray); colorbar;  axis image;  
+pause;  
 
 
-���l�ɁA�W�K���摜�̐������s���B
+同様に、４階調画像の生成を行う。  
 
-IMG0 = ORG>32;
-IMG1 = ORG>64;
-IMG2 = ORG>96;
-IMG3 = ORG>128;
-IMG4 = ORG>160;
-IMG5 = ORG>192;
-IMG6 = ORG>224;
-IMG = IMG0 + IMG1 + IMG2 + IMG3 + IMG4 + IMG5 + IMG6;
-saveas(gcf,'kadai2-4.png');
-imagesc(IMG); colormap(gray); colorbar;  axis image;
+IMG0 = ORG>64;  
+IMG1 = ORG>128;  
+IMG2 = ORG>192;  
+IMG = IMG0 + IMG1 + IMG2;  
+imagesc(IMG); colormap(gray); colorbar;  axis image;  
 
 
-�����̌��ʂ��}�Q�`�}�S�ƂȂ�B
+同様に、８階調画像の生成を行う。  
 
- �Q�K���͐}�Q�̒ʂ�B
+IMG0 = ORG>32;  
+IMG1 = ORG>64;  
+IMG2 = ORG>96;  
+IMG3 = ORG>128;  
+IMG4 = ORG>160;  
+IMG5 = ORG>192;  
+IMG6 = ORG>224;  
+IMG = IMG0 + IMG1 + IMG2 + IMG3 + IMG4 + IMG5 + IMG6;  
+imagesc(IMG); colormap(gray); colorbar;  axis image;  
+
+
+これらの結果が図２～図４となる。  
+
+ ２階調は図２の通り。  
 
 ![2](kadai1-2.png)
-�}�Q�@ �Q�K���̉摜
+図２　 ２階調の画像
 
 
 
- �S�K���͐}�R�̒ʂ�B
+ ４階調は図３の通り。
 
 ![2](kadai1-3.png)
-�}�R�@ �S�K���̉摜
+図３　 ４階調の画像
 
 
 
- �W�K���͐}�S�̒ʂ�B
+ ８階調は図４の通り。
 
 ![2](kadai1-4.png)
-�}�S�@ �W�K���̉摜
+図４　 ８階調の画像

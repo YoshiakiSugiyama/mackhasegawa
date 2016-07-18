@@ -1,51 +1,51 @@
-# �ۑ�P�@�W�{���Ԋu�Ƌ�ԉ𑜓x�@���|�[�g
-
-����͉摜���_�E���T���v�����O���ĕ\������v���O�����ł���D
-�ȉ��̃R�}���himread�ɂ��A280x240�̉𑜓x�̉摜��ǂݍ��ށB
+# 課題１　標本化間隔と空間解像度　レポート
+ 
+これは画像をダウンサンプリングして表示するプログラムである．
+以下のコマンドimreadにより、280x240の解像度の画像を読み込む。
 
 ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg');
-imagesc(ORG); axis image; % �摜�̕\��
-pause; % �ꎞ��~
+imagesc(ORG); axis image; % 画像の表示
+pause; % 一時停止
 
-�ǂݍ��񂾉摜�͈ȉ��̐}�P�̒ʂ�B
+読み込んだ画像は以下の図１の通り。
 
-![���摜](http://web.dendai.ac.jp/albums/abm00000476.jpg)
+![原画像](http://web.dendai.ac.jp/albums/abm00000476.jpg)
 
-�}�P�@���摜
+図１　原画像
 
 
 
-�ȉ��R�}���h��p���āA���摜��2����1�ɃT���v�����O���邽�߁A�摜���c�����ꂼ��2����1�̉𑜓x�ɏk����A���ꂼ��2�{���Č��摜�T�C�Y�ɖ߂��B
-�܂��AMATLAB�̒P����Ԃ��s�����߁A�ubox�v�R�}���h��t������B
+以下コマンドを用いて、原画像を2分の1にサンプリングするため、画像を縦横それぞれ2分の1の解像度に縮小後、それぞれ2倍して原画像サイズに戻す。
+また、MATLABの単純補間を行うため、「box」コマンドを付加する。
 
-IMG = imresize(ORG,0.5); % �摜�̏k��
-IMG2 = imresize(IMG,2,'box'); % �摜�̊g��
-imagesc(IMG2); axis image; % �摜�̕\��
-pause; % �ꎞ��~
+IMG = imresize(ORG,0.5); % 画像の縮小
+IMG2 = imresize(IMG,2,'box'); % 画像の拡大
+imagesc(IMG2); axis image; % 画像の表示
+pause; % 一時停止
 
-�������J��Ԃ��Aimresize�Ő}�P�̃T�C�Y�ɖ߂�������J��Ԃ������ʂ��}�Q�`�}�T�ƂȂ�B
+これらを繰り返し、imresizeで図１のサイズに戻す操作を繰り返した結果が図２～図５となる。
 
- 2����1�T���v�����O�͐}�Q�̒ʂ�B
+ 2分の1サンプリングは図２の通り。
 ![2](kadai1-2.png)
-�}�Q�@ 2����1�T���v�����O
+図２　 2分の1サンプリング
 
 
 
- 4����1�T���v�����O�͐}�R�̒ʂ�B
+ 4分の1サンプリングは図３の通り。
 ![2](kadai1-3.png)
-�}�R�@ 4����1�T���v�����O
+図３　 4分の1サンプリング
 
 
 
- 8����1�T���v�����O�͐}�S�̒ʂ�B
+ 8分の1サンプリングは図４の通り。
 ![2](kadai1-4.png)
-�}�S�@ 8����1�T���v�����O
+図４　 8分の1サンプリング
 
 
 
-16����1�T���v�����O�͐}�S�̒ʂ�B
+16分の1サンプリングは図４の通り。
 ![2](kadai1-5.png)
-�}�S�@16����1�T���v�����O
+図４　16分の1サンプリング
 
 
 

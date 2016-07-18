@@ -10,7 +10,7 @@ pause; % 一時停止
 
 読み込んで白黒にした画像は以下の図１の通り。  
 
-![原画像](kadai2-1.png)
+![原画像](kadai1-1.png)
 
 図１　原画像
 
@@ -49,19 +49,19 @@ imagesc(IMG); colormap(gray); colorbar;  axis image;
 
  ２階調は図２の通り。  
 
-![2](kadai1-2.png)
+![2](kadai2-2.png)
 図２　 ２階調の画像
 
 
 
  ４階調は図３の通り。
 
-![2](kadai1-3.png)
+![2](kadai2-3.png)
 図３　 ４階調の画像
 
 
 
  ８階調は図４の通り。
 
-![2](kadai1-4.png)
+![2](kadai2-4.png)
 図４　 ８階調の画像

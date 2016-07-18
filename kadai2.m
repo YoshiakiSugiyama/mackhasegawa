@@ -1,0 +1,38 @@
+% ‰Û‘è‚Q@ŠK’²”‚Æ‹^Ž——ÖŠs
+% ‚QŠK’²C‚SŠK’²C‚WŠK’²‚Ì‰æ‘œ‚ð¶¬‚¹‚æD
+% ‰º‹L‚ÍƒTƒ“ƒvƒ‹ƒvƒƒOƒ‰ƒ€‚Å‚ ‚éD
+% ‰Û‘èì¬‚É‚ ‚½‚Á‚Ä‚ÍuLennavˆÈŠO‚Ì‰æ‘œ‚ð—p‚¢‚æD
+
+clear; % •Ï”‚ÌƒI[ƒ‹ƒNƒŠƒA
+
+ORG=imread('http://web.dendai.ac.jp/albums/abm00000476.jpg'); % Œ´‰æ‘œ‚Ì“ü—Í
+ORG = rgb2gray(ORG); colormap(gray); colorbar;
+imagesc(ORG); axis image; % ‰æ‘œ‚Ì•\Ž¦
+saveas(gcf,'kadai2-1.png');
+pause; % ˆêŽž’âŽ~
+
+% ‚QŠK’²‰æ‘œ‚Ì¶¬
+IMG = ORG>128;
+imagesc(IMG); colormap(gray); colorbar;  axis image;
+saveas(gcf,'kadai2-2.png');
+pause;
+
+% ‚SŠK’²‰æ‘œ‚Ì¶¬
+IMG0 = ORG>64;
+IMG1 = ORG>128;
+IMG2 = ORG>192;
+IMG = IMG0 + IMG1 + IMG2;
+saveas(gcf,'kadai2-3.png');
+imagesc(IMG); colormap(gray); colorbar;  axis image;
+
+% ‚WŠK’²‰æ‘œ‚Ìì¬i‚ŽŠK’²‰æ‘œ‚Í n-1 ‰ñA•ªŠ„‚·‚éBj
+IMG0 = ORG>32;
+IMG1 = ORG>64;
+IMG2 = ORG>96;
+IMG3 = ORG>128;
+IMG4 = ORG>160;
+IMG5 = ORG>192;
+IMG6 = ORG>224;
+IMG = IMG0 + IMG1 + IMG2 + IMG3 + IMG4 + IMG5 + IMG6;
+saveas(gcf,'kadai2-4.png');
+imagesc(IMG); colormap(gray); colorbar;  axis image;
